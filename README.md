@@ -18,3 +18,8 @@ Sin embargo, una vez proporcionado el modelo por nuestra parte, los especialista
 Después de ese intercambio, nos pareció que más allá de implementar un modelo de predicción de infectados, necesitabamos implementar una herramienta que le diera seguimiento a la evolución epidemiológica del país, dónde sea observarble el efecto de las políticas públicas como las cuarentena.
 
 ## Seguimiento semanal epidemiológico en México
+
+Por eso hicimos una implementación regional de la metodología utilizada por el [centro de modelado matemático para enfermedades infecciosas](https://cmmid.github.io/) descrito en [https://epiforecasts.io/covid/](https://epiforecasts.io/covid/).
+
+La implementación permite identificar los cambios en el **número de reproducción** $R_e(t)$ y **casos diarios** durante el brote de COVID-19 a nivel nacional y subnacional, teniendo en cuenta posibles sesgos debido a retrasos en la notificación de los casos confirmados y el subreporte, el cuál será actualizado semana a semana con los datos oficiales nacionales.
+
