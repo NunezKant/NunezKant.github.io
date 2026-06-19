@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miguel A. Núñez Ochoa — Computational Neuroscientist & AI Scientist</title>
+  <meta name="description" content="Computational Neuroscientist and ML Scientist at HHMI Janelia. PhD in Neuroscience, Biomedical Engineer. Expert in large-scale neural recordings, deep learning, and Bayesian inference." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKEN SYSTEM ───────────────────────────────────────────────── */
+    :root {
+      --navy:      #0A1628;
+      --navy-mid:  #0F2040;
+      --navy-soft: #162847;
+      --cream:     #F5F0E8;
+      --cream-dim: #E8E2D5;
+      --teal:      #00C4B3;
+      --teal-dim:  #008F83;
+      --gold:      #C9A84C;
+      --slate:     #8A9BB0;
+      --white:     #FFFFFF;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+      --max-w: 1100px;
+      --section-pad: 96px 24px;
+    }
+
+    /* ── RESET ──────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,22,40,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--slate);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* ── HERO ───────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    #neural-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.35;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-text {}
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--teal);
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5vw, 60px);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--teal);
+      margin-bottom: 28px;
+    }
+    .hero-bio {
+      font-size: 16px;
+      color: var(--slate);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+    .hero-bio strong { color: var(--cream); font-weight: 500; }
+    .hero-cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: var(--navy);
+      padding: 13px 28px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+      border-radius: 2px;
+    }
+    .btn-primary:hover { background: #00dbc8; transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--slate);
+      color: var(--slate);
+      padding: 13px 28px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      border-radius: 2px;
+    }
+    .btn-ghost:hover { border-color: var(--cream); color: var(--cream); transform: translateY(-1px); }
+
+    /* Hero stats card */
+    .hero-stats-card {
+      background: var(--navy-soft);
+      border: 1px solid rgba(0,196,179,0.2);
+      border-radius: 4px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .stat-item {}
+    .stat-number {
+      font-family: var(--font-mono);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 500;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.4;
+      max-width: 220px;
+    }
+    .stat-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(138,155,176,0.15);
+    }
+    .hero-affiliation {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .affil-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .affil-text {
+      font-size: 13px;
+      color: var(--slate);
+    }
+    .affil-text strong { color: var(--cream); }
+
+    /* ── INTRO / ABOUT ──────────────────────────────────────────────── */
+    #intro {
+      background: var(--cream);
+      color: var(--navy);
+      padding: var(--section-pad);
+    }
+    .intro-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal-dim);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--teal-dim);
+    }
+    .section-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+    .section-h2--light { color: var(--white); }
+    .intro-sticky {
+      position: sticky;
+      top: 100px;
+    }
+    .intro-tagline {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+    .intro-tagline em { color: var(--teal-dim); font-style: italic; }
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .chip {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 5px 12px;
+      border: 1px solid rgba(10,22,40,0.25);
+      color: var(--navy);
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+    .chip--accent {
+      background: var(--navy);
+      color: var(--teal);
+      border-color: var(--navy);
+    }
+    .intro-body p {
+      font-size: 16px;
+      color: #2a3a50;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .intro-body p:last-child { margin-bottom: 0; }
+    .intro-body strong { color: var(--navy); font-weight: 600; }
+    .timeline {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(10,22,40,0.1);
+    }
+    .timeline-item:first-child { border-top: 1px solid rgba(10,22,40,0.1); }
+    .tl-year {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--teal-dim);
+      padding-top: 2px;
+      font-weight: 500;
+    }
+    .tl-content {}
+    .tl-role {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .tl-org {
+      font-size: 13px;
+      color: #5a6e85;
+      margin-bottom: 6px;
+    }
+    .tl-desc {
+      font-size: 14px;
+      color: #6a7f98;
+      line-height: 1.6;
+    }
+
+    /* ── INDUSTRY ───────────────────────────────────────────────────── */
+    #industry {
+      background: var(--navy-mid);
+      padding: var(--section-pad);
+    }
+    .industry-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .industry-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 72px;
+      align-items: end;
+    }
+    .industry-header p {
+      font-size: 16px;
+      color: var(--slate);
+      line-height: 1.8;
+    }
+    .industry-header p strong { color: var(--cream); }
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 72px;
+    }
+    .expertise-card {
+      background: var(--navy-soft);
+      padding: 36px 28px;
+      transition: background 0.2s;
+    }
+    .expertise-card:hover { background: #1a3358; }
+    .card-icon {
+      width: 44px; height: 44px;
+      margin-bottom: 20px;
+      color: var(--teal);
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+    }
+    .card-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border: 1px solid rgba(0,196,179,0.3);
+      border-radius: 2px;
+    }
+
+    /* Fit table */
+    .fit-section {
+      margin-top: 0;
+    }
+    .fit-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--slate);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .fit-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .fit-table th {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      text-transform: uppercase;
+      text-align: left;
+      padding: 0 20px 16px 0;
+      border-bottom: 1px solid rgba(138,155,176,0.2);
+    }
+    .fit-table td {
+      padding: 18px 20px 18px 0;
+      border-bottom: 1px solid rgba(138,155,176,0.08);
+      font-size: 14px;
+      color: var(--cream);
+      vertical-align: top;
+    }
+    .fit-table td:first-child { font-weight: 500; }
+    .fit-dots {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(0,196,179,0.2);
+    }
+    .dot.filled { background: var(--teal); }
+    .fit-note {
+      font-size: 12px;
+      color: var(--slate);
+      margin-top: 4px;
+    }
+
+    /* ── RESEARCH ───────────────────────────────────────────────────── */
+    #research {
+      background: var(--cream);
+      color: var(--navy);
+      padding: var(--section-pad);
+    }
+    .research-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .research-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 64px;
+      align-items: end;
+    }
+    .research-header p {
+      font-size: 16px;
+      color: #3a4f68;
+      line-height: 1.8;
+    }
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .pub-item {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(10,22,40,0.1);
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .pub-item:first-child { border-top: 1px solid rgba(10,22,40,0.1); }
+    .pub-year {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--teal-dim);
+      padding-top: 3px;
+      font-weight: 500;
+    }
+    .pub-content {}
+    .pub-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 10px;
+    }
+    .pub-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+    .pub-authors {
+      font-size: 13px;
+      color: #5a7090;
+      margin-bottom: 6px;
+    }
+    .pub-authors strong { color: var(--navy); }
+    .pub-journal {
+      font-size: 13px;
+      color: var(--teal-dim);
+      font-style: italic;
+    }
+    .pub-doi {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #8a9bb0;
+      margin-top: 8px;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .pub-doi:hover { color: var(--teal-dim); }
+    .research-areas {
+      margin-top: 72px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .area-card {
+      background: var(--cream-dim);
+      padding: 32px 24px;
+    }
+    .area-num {
+      font-family: var(--font-mono);
+      font-size: 36px;
+      color: rgba(10,22,40,0.12);
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .area-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .area-desc {
+      font-size: 13px;
+      color: #5a7090;
+      line-height: 1.65;
+    }
+
+    /* ── CONTACT ────────────────────────────────────────────────────── */
+    #contact {
+      background: var(--navy);
+      padding: 96px 40px;
+      text-align: center;
+    }
+    .contact-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .contact-pre {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .contact-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .contact-sub {
+      font-size: 16px;
+      color: var(--slate);
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--slate);
+      transition: color 0.2s;
+      padding: 12px 20px;
+      border: 1px solid rgba(138,155,176,0.2);
+      border-radius: 2px;
+    }
+    .contact-link:hover { color: var(--teal); border-color: var(--teal); }
+    .contact-link svg { flex-shrink: 0; }
+    .contact-email {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 15px;
+      color: var(--teal);
+      padding: 16px 32px;
+      border: 1px solid var(--teal);
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .contact-email:hover { background: var(--teal); color: var(--navy); }
+
+    /* ── FOOTER ─────────────────────────────────────────────────────── */
+    footer {
+      background: #050e1a;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(138,155,176,0.5);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── ANIMATIONS ─────────────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-stats-card { flex-direction: row; flex-wrap: wrap; gap: 24px; }
+      .intro-inner { grid-template-columns: 1fr; gap: 48px; }
+      .intro-sticky { position: static; }
+      .industry-header { grid-template-columns: 1fr; gap: 24px; }
+      .expertise-grid { grid-template-columns: 1fr; }
+      .research-header { grid-template-columns: 1fr; gap: 24px; }
+      .research-areas { grid-template-columns: 1fr; }
+      nav { padding: 16px 24px; }
+      .nav-links { gap: 20px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero-content { padding: 100px 24px 60px; }
+      .fit-table { font-size: 13px; }
+      .pub-item { grid-template-columns: 1fr; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="nav-logo">M.A.N.O.</div>
+  <ul class="nav-links">
+    <li><a href="#intro">About</a></li>
+    <li><a href="#industry">Industry</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────────────── -->
+<section id="hero">
+  <canvas id="neural-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Computational Neuroscience · AI · Biomedical Engineering</div>
+      <h1>Miguel A.<br>Núñez Ochoa</h1>
+      <div class="hero-subtitle">Where biological and artificial intelligence meet.</div>
+      <p class="hero-bio">
+        Research Associate at <strong>HHMI Janelia</strong> (Pachitariu & Stringer Lab). PhD in Neuroscience, Biomedical Engineer, MIT MicroMaster in Statistics & Data Science.
+        <br><br>
+        I build <strong>ML systems to decode how neural circuits give rise to cognition</strong> — working at the scale of 50,000 simultaneously recorded neurons. Now exploring how these methods translate to <strong>healthcare AI, drug discovery, and clinical science</strong>.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#industry" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          Industry Profile
+        </a>
+        <a href="#research" class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Research
+        </a>
+      </div>
+    </div>
+    <div class="hero-stats-card">
+      <div class="stat-item">
+        <div class="stat-number">50K</div>
+        <div class="stat-label">Neurons simultaneously recorded & analyzed with ML at HHMI Janelia</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Years at one of the world's most prestigious neuroscience institutions</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-affiliation">
+        <div class="affil-dot"></div>
+        <div class="affil-text"><strong>Nature Communications</strong> · First-author publication on visual cortical neuron modeling, 2025</div>
+      </div>
+      <div class="hero-affiliation">
+        <div class="affil-dot" style="background: var(--teal);"></div>
+        <div class="affil-text"><strong>MIT MicroMaster</strong> · Statistics & Data Science</div>
+      </div>
+      <div class="hero-affiliation">
+        <div class="affil-dot" style="background: var(--slate);"></div>
+        <div class="affil-text"><strong>PhD Neuroscience</strong> + <strong>BSc Biomedical Engineering</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INTRO / ABOUT ───────────────────────────────────────────────── -->
+<section id="intro">
+  <div class="intro-inner">
+    <div class="intro-sticky">
+      <div class="section-label">About</div>
+      <div class="intro-tagline">I crack intelligence — <em>biological first</em>, then artificial.</div>
+      <div class="skill-chips">
+        <span class="chip chip--accent">Deep Learning</span>
+        <span class="chip chip--accent">Bayesian Inference</span>
+        <span class="chip chip--accent">Causal Estimation</span>
+        <span class="chip">Python · R · MATLAB · SQL</span>
+        <span class="chip">Large-scale neural recordings</span>
+        <span class="chip">Signal & image analysis</span>
+        <span class="chip">Statistical modeling</span>
+        <span class="chip">Dimensionality reduction</span>
+      </div>
+    </div>
+    <div class="intro-body fade-in">
+      <p>
+        Most people who understand the brain can't build AI systems. Most AI scientists don't understand the brain. I sit at the intersection — trained as a <strong>Biomedical Engineer</strong>, holding a <strong>PhD in Systems & Computational Neuroscience</strong>, and spending the last five years at <strong>HHMI Janelia Research Campus</strong> pushing the limits of what ML can reveal about neural computation.
+      </p>
+      <p>
+        At Janelia, I work with recordings from populations of up to <strong>50,000 neurons</strong>, using machine learning and mathematical theory to understand how the brain encodes information, learns, and makes decisions. My 2025 <em>Nature Communications</em> paper introduced a simplified minimodel of visual cortical neurons — a step toward understanding the computational primitives the brain uses to process the world.
+      </p>
+      <p>
+        The skills I've built — <strong>Bayesian and causal inference, deep learning on high-dimensional biosignals, scalable ML pipelines</strong> — map directly onto the challenges in healthcare AI, drug discovery, and clinical data science. I'm now actively exploring opportunities in industry, with a focus on <strong>CNS/neuroscience, health AI, and computational science</strong> roles in Montreal and Barcelona.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-year">2021→</div>
+          <div class="tl-content">
+            <div class="tl-role">Research Associate</div>
+            <div class="tl-org">HHMI Janelia Research Campus · Pachitariu & Stringer Lab · Ashburn, VA</div>
+            <div class="tl-desc">Large-scale neural population recordings (up to 50K neurons). ML/DL for understanding the structure of neural activity and its relationship to cognition and behavior.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-year">2018–20</div>
+          <div class="tl-content">
+            <div class="tl-role">MicroMaster · Statistics & Data Science</div>
+            <div class="tl-org">Massachusetts Institute of Technology (Online)</div>
+            <div class="tl-desc">Probability, fundamentals of statistics, data analysis in social science, machine learning with Python. Completed capstone exam.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-year">2017–21</div>
+          <div class="tl-content">
+            <div class="tl-role">PhD · Neuroscience</div>
+            <div class="tl-org">Universidad de Guadalajara · CONACYT Scholar</div>
+            <div class="tl-desc">Causal dynamics of hippocampal circuits in epilepsy. Wavelet-based biomarker detection, Bayesian causal inference, in vivo electrophysiology.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-year">2010–15</div>
+          <div class="tl-content">
+            <div class="tl-role">BSc · Biomedical Engineering</div>
+            <div class="tl-org">ITESM (Tec de Monterrey) · Academic Achievement Scholar</div>
+            <div class="tl-desc">Bio-instrumentation, signal analysis, and data engineering applied to health solutions. Exchange semester at USC (Neuromechanics).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INDUSTRY ────────────────────────────────────────────────────── -->
+<section id="industry">
+  <div class="industry-inner">
+    <div class="industry-header">
+      <div>
+        <div class="section-label" style="color: var(--teal);">
+          <span style="display:block; width:24px; height:1px; background:var(--teal);"></span>
+          Industry
+        </div>
+        <h2 class="section-h2 section-h2--light">Built for the intersection<br>of AI and life sciences.</h2>
+      </div>
+      <p>
+        The rarest profiles in healthcare AI are those who understand <strong>both sides</strong>: the biological system and the computational model. My background spans neural signal processing, large-scale ML, and rigorous statistical inference — skills that translate directly to <strong>drug discovery, clinical analytics, digital health, and real-world evidence</strong>.
+      </p>
+    </div>
+
+    <div class="expertise-grid">
+      <div class="expertise-card fade-in">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44l-1.43-6.05A2 2 0 0 0 3.67 11H2"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44l1.43-6.05A2 2 0 0 1 20.33 11H22"/>
+        </svg>
+        <div class="card-title">Neural & Biosignal ML</div>
+        <div class="card-desc">Expert in processing high-dimensional time-series from biological systems — from raw electrophysiology to population dynamics. Applies directly to EEG, fMRI, wearable, and multimodal clinical signals.</div>
+        <div class="card-tags">
+          <span class="card-tag">Time-series</span>
+          <span class="card-tag">Signal processing</span>
+          <span class="card-tag">Population dynamics</span>
+        </div>
+      </div>
+      <div class="expertise-card fade-in fade-in-delay-1">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/><path d="M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+        </svg>
+        <div class="card-title">Bayesian & Causal Inference</div>
+        <div class="card-desc">Deep expertise in probabilistic modeling and causal estimation — from hippocampal circuit dynamics to economic ecosystem modeling. Directly applicable to RWE, treatment effect estimation, and causal AI in pharma.</div>
+        <div class="card-tags">
+          <span class="card-tag">Bayesian stats</span>
+          <span class="card-tag">Causal estimation</span>
+          <span class="card-tag">RWE-ready</span>
+        </div>
+      </div>
+      <div class="expertise-card fade-in fade-in-delay-2">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M10 8h4M18 8h.01M6 12h12"/>
+        </svg>
+        <div class="card-title">Deep Learning at Scale</div>
+        <div class="card-desc">Designed and trained neural architectures on datasets with millions of data points (50K neurons × behavioral epochs). Experienced in building DL pipelines for complex biological prediction tasks.</div>
+        <div class="card-tags">
+          <span class="card-tag">PyTorch / Python</span>
+          <span class="card-tag">Large-scale pipelines</span>
+          <span class="card-tag">Model interpretability</span>
+        </div>
+      </div>
+      <div class="expertise-card fade-in">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+        </svg>
+        <div class="card-title">Statistical Modeling & Experimental Design</div>
+        <div class="card-desc">MIT-trained in rigorous statistical frameworks. From experimental design through model validation — I build analyses that hold up to scientific scrutiny, a key differentiator for clinical and pharma research roles.</div>
+        <div class="card-tags">
+          <span class="card-tag">Experimental design</span>
+          <span class="card-tag">Model validation</span>
+          <span class="card-tag">R · Python · MATLAB</span>
+        </div>
+      </div>
+      <div class="expertise-card fade-in fade-in-delay-1">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+        <div class="card-title">CNS & Neuroscience Domain</div>
+        <div class="card-desc">Rare combination: computational scientist who understands the biological substrate. Directly relevant for CNS drug development, neuro-AI diagnostics, and translational neuroscience at companies like Oryzon, Perceiv AI, and Aifred Health.</div>
+        <div class="card-tags">
+          <span class="card-tag">Hippocampus / epilepsy</span>
+          <span class="card-tag">Visual cortex</span>
+          <span class="card-tag">Neural circuits</span>
+        </div>
+      </div>
+      <div class="expertise-card fade-in fade-in-delay-2">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <div class="card-title">Teaching & Communication</div>
+        <div class="card-desc">Lectured ML, statistics, and deep learning at ITESM and RIIAA (Latin America's top AI event — hosted Bengio, Hinton). Mentored teams winning national data hackathons. Strong communicator across technical and non-technical audiences.</div>
+        <div class="card-tags">
+          <span class="card-tag">Lecturing</span>
+          <span class="card-tag">Team mentoring</span>
+          <span class="card-tag">Cross-functional</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fit-section fade-in">
+      <div class="fit-label" style="color: var(--slate); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px;">Role fit overview</div>
+      <table class="fit-table">
+        <thead>
+          <tr>
+            <th style="width: 260px;">Role</th>
+            <th style="width: 120px;">Fit</th>
+            <th>What I bring</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Research Scientist / Senior Scientist</td>
+            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></td>
+            <td style="color: var(--slate);">Janelia + Nature Comms publication = direct signal for science-first orgs</td>
+          </tr>
+          <tr>
+            <td>ML Scientist / Senior AI Scientist</td>
+            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></td>
+            <td style="color: var(--slate);">Large-scale ML on neural data translates directly to biomedical ML pipelines</td>
+          </tr>
+          <tr>
+            <td>Computational Scientist</td>
+            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></td>
+            <td style="color: var(--slate);">Core of Janelia work — modeling, simulation, and high-dimensional analysis</td>
+          </tr>
+          <tr>
+            <td>Principal / Senior Data Scientist</td>
+            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot" style="background: rgba(0,196,179,0.2);"></div></div></td>
+            <td style="color: var(--slate);">MIT Stats + leadership experience in hackathons, teaching, and consulting</td>
+          </tr>
+          <tr>
+            <td>Digital Health AI Scientist</td>
+            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot" style="background: rgba(0,196,179,0.2);"></div></div></td>
+            <td style="color: var(--slate);">Biomedical Engineering bridges neuro expertise → health tech applications</td>
+          </tr>
+          <tr>
+            <td>RWE Data Scientist</td>
+            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot" style="background: rgba(0,196,179,0.2);"></div><div class="dot" style="background: rgba(0,196,179,0.2);"></div></div></td>
+            <td style="color: var(--slate);">Causal inference expertise is strong; building EHR/claims exposure</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESEARCH ────────────────────────────────────────────────────── -->
+<section id="research">
+  <div class="research-inner">
+    <div class="research-header">
+      <div>
+        <div class="section-label">Research</div>
+        <h2 class="section-h2">Peer-reviewed work<br>at the neural–AI frontier.</h2>
+      </div>
+      <p>
+        My publications span computational neuroscience, systems neuroscience, and neuro-engineering. From hippocampal epilepsy biomarkers to large-scale cortical models, the through-line is rigorous mathematical modeling of complex biological systems. <a href="https://scholar.google.com/citations?user=-atQBQgAAAAJ&hl=en" target="_blank" rel="noopener" style="color: var(--teal-dim); font-weight: 500;">View on Google Scholar →</a>
+      </p>
+    </div>
+
+    <div class="pub-list">
+      <div class="pub-item fade-in">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <span class="pub-badge">First Author · Nature Communications</span>
+          <div class="pub-title">A simplified minimodel of visual cortical neurons</div>
+          <div class="pub-authors">Du, F., <strong>Núñez-Ochoa, M. A.</strong>, Pachitariu, M. et al.</div>
+          <div class="pub-journal">Nature Communications</div>
+          <a class="pub-doi" href="https://doi.org/10.1038/S41467-025-61171-9" target="_blank" rel="noopener">DOI: 10.1038/S41467-025-61171-9 ↗</a>
+        </div>
+      </div>
+      <div class="pub-item fade-in">
+        <div class="pub-year">2021</div>
+        <div class="pub-content">
+          <span class="pub-badge">First Author · BMC Neuroscience</span>
+          <div class="pub-title">Causal relationship of CA3 back-projection to the dentate gyrus and its role in CA1 fast ripple generation</div>
+          <div class="pub-authors"><strong>Núñez-Ochoa, M. A.</strong>, Chipres-Tinajero, G. A., González-Domínguez, N. P., Medina-Ceja, L. G.</div>
+          <div class="pub-journal">BMC Neuroscience</div>
+          <a class="pub-doi" href="https://doi.org/10.1186/S12868-021-00641-4" target="_blank" rel="noopener">DOI: 10.1186/S12868-021-00641-4 ↗</a>
+        </div>
+      </div>
+      <div class="pub-item fade-in">
+        <div class="pub-year">2021</div>
+        <div class="pub-content">
+          <span class="pub-badge">First Author · NeuroReport</span>
+          <div class="pub-title">Hippocampal immunoreactivity of serotonin 5-HT1A, 5-HT2 and 5-HT7 receptors in a pilocarpine temporal lobe epilepsy rat model with fast ripples</div>
+          <div class="pub-authors"><strong>Núñez-Ochoa, M. A.</strong>, Chipres-Tinajero, G. A., Medina-Ceja, L. G.</div>
+          <div class="pub-journal">NeuroReport</div>
+          <a class="pub-doi" href="https://doi.org/10.1097/WNR.0000000000001594" target="_blank" rel="noopener">DOI: 10.1097/WNR.0000000000001594 ↗</a>
+        </div>
+      </div>
+      <div class="pub-item fade-in">
+        <div class="pub-year">2021</div>
+        <div class="pub-content">
+          <span class="pub-badge">Co-author · Experimental Brain Research</span>
+          <div class="pub-title">Increased immunoreactivity of glutamate receptors, NeuN and GFAP in the hippocampus of epileptic rats with fast ripple activity</div>
+          <div class="pub-authors">Chipres-Tinajero, G. A., <strong>Núñez-Ochoa, M. A.</strong>, Medina-Ceja, L. G.</div>
+          <div class="pub-journal">Experimental Brain Research</div>
+          <a class="pub-doi" href="https://doi.org/10.1007/S00221-021-06108-6" target="_blank" rel="noopener">DOI: 10.1007/S00221-021-06108-6 ↗</a>
+        </div>
+      </div>
+      <div class="pub-item fade-in">
+        <div class="pub-year">2020</div>
+        <div class="pub-content">
+          <span class="pub-badge">Co-author · Behavioural Neurology</span>
+          <div class="pub-title">Effect of deep implantation surgery on physiological and pathological behaviours in rats: a temporal analysis</div>
+          <div class="pub-authors">Chipres-Tinajero, G. A., <strong>Núñez-Ochoa, M. A.</strong>, Medina-Ceja, L. G.</div>
+          <div class="pub-journal">Behavioural Neurology</div>
+          <a class="pub-doi" href="https://doi.org/10.1155/2020/4385706" target="_blank" rel="noopener">DOI: 10.1155/2020/4385706 ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-areas">
+      <div class="area-card fade-in">
+        <div class="area-num">01</div>
+        <div class="area-title">Neural Population Coding</div>
+        <div class="area-desc">How do ensembles of thousands of neurons jointly encode sensory information? I study the geometric and dynamical structure of population activity using dimensionality reduction and ML.</div>
+      </div>
+      <div class="area-card fade-in fade-in-delay-1">
+        <div class="area-num">02</div>
+        <div class="area-title">Hippocampal Circuit Dynamics</div>
+        <div class="area-desc">Using Bayesian and causal inference to map the causal architecture of hippocampal circuits — with applications to epilepsy biomarkers (fast ripples) and memory consolidation.</div>
+      </div>
+      <div class="area-card fade-in fade-in-delay-2">
+        <div class="area-num">03</div>
+        <div class="area-title">Computational Models of Neurons</div>
+        <div class="area-desc">Building simplified but predictive models of cortical neurons — bridging biophysical realism and engineering utility. The goal: models that are both interpretable and scalable.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-pre">Get in touch</div>
+    <h2 class="contact-h2">Open to opportunities<br>in Montreal & Barcelona.</h2>
+    <p class="contact-sub">
+      I'm actively exploring roles in healthcare AI, computational science, and ML research in pharma and biotech. If you're looking for a scientist who can build, not just advise — let's talk.
+    </p>
+    <div class="contact-links">
+      <a class="contact-link" href="https://www.linkedin.com/in/miguelno" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="contact-link" href="https://scholar.google.com/citations?user=-atQBQgAAAAJ&hl=en" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Google Scholar
+      </a>
+      <a class="contact-link" href="https://github.com/NunezKant" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+    <a class="contact-email" href="mailto:miguel.nunez.ochoa@gmail.com">
+      miguel.nunez.ochoa@gmail.com
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<footer>
+  <p>Miguel A. Núñez Ochoa · Computational Neuroscientist & AI Scientist</p>
+  <p>Montreal · Barcelona · Open to relocation</p>
+</footer>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────────────── -->
+<script>
+// ── Nav scroll effect ──────────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+}, { passive: true });
+
+// ── Intersection observer for fade-ins ─────────────────────────────
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+
+// ── Neural network canvas animation ───────────────────────────────
+(function() {
+  const canvas = document.getElementById('neural-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes, edges, rafId;
+  const NODE_COUNT = 52;
+  const EDGE_DIST = 180;
+  const TEAL = '#00C4B3';
+  const GOLD = '#C9A84C';
+
+  function resize() {
+    W = canvas.offsetWidth;
+    H = canvas.offsetHeight;
+    canvas.width = W;
+    canvas.height = H;
+  }
+
+  function buildGraph() {
+    nodes = Array.from({ length: NODE_COUNT }, (_, i) => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      r: Math.random() * 2.5 + 1.2,
+      phase: Math.random() * Math.PI * 2,
+      freq: 0.4 + Math.random() * 0.8,
+      color: Math.random() < 0.15 ? GOLD : TEAL,
+    }));
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    const ts = t * 0.001;
+
+    // Draw edges
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[j].x - nodes[i].x;
+        const dy = nodes[j].y - nodes[i].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < EDGE_DIST) {
+          const alpha = (1 - dist / EDGE_DIST) * 0.22;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = `rgba(0,196,179,${alpha})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw nodes
+    nodes.forEach(n => {
+      const pulse = 0.6 + 0.4 * Math.sin(ts * n.freq + n.phase);
+      const r = n.r * (0.8 + 0.4 * pulse);
+      const alpha = 0.5 + 0.5 * pulse;
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, r * 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = n.color === GOLD
+        ? `rgba(201,168,76,${alpha * 0.12})`
+        : `rgba(0,196,179,${alpha * 0.1})`;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = n.color === GOLD
+        ? `rgba(201,168,76,${alpha * 0.9})`
+        : `rgba(0,196,179,${alpha * 0.85})`;
+      ctx.fill();
+
+      // Move
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < -10) n.x = W + 10;
+      if (n.x > W + 10) n.x = -10;
+      if (n.y < -10) n.y = H + 10;
+      if (n.y > H + 10) n.y = -10;
+    });
+
+    rafId = requestAnimationFrame(draw);
+  }
+
+  function init() {
+    resize();
+    buildGraph();
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { resize(); buildGraph(); }, { passive: true });
+
+  // Respect reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    canvas.style.display = 'none';
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
