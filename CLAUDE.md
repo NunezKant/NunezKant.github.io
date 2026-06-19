@@ -71,7 +71,7 @@ The **neural network canvas animation** in the hero is the signature element. It
 | Role | Research Associate |
 | Start date | Aug 2020 (CV) / Jul 2021 (LinkedIn) |
 | Key stat | up to 50,000 neurons recorded simultaneously |
-| Top publication | *Nature Communications* (2025), first author, DOI: 10.1038/S41467-025-61171-9 |
+| Top publication | *Nature Communications* (2025), DOI: 10.1038/S41467-025-61171-9 |
 | Google Scholar | https://scholar.google.com/citations?user=-atQBQgAAAAJ&hl=en |
 | LinkedIn | https://www.linkedin.com/in/miguelno |
 | GitHub | https://github.com/NunezKant |
