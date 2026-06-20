@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miguel A. Núñez Ochoa — Computational Neuroscientist & AI Scientist</title>
+  <title>Miguel Angel Núñez Ochoa · Computational Neuroscientist & AI Scientist</title>
   <meta name="description" content="Computational Neuroscientist and ML Scientist at HHMI Janelia. PhD in Neuroscience, Biomedical Engineer. Expert in large-scale neural recordings, deep learning, and Bayesian inference." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -156,6 +156,77 @@
       gap: 16px;
       flex-wrap: wrap;
     }
+
+    /* Hero photo */
+    .hero-photo-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+    .hero-photo-wrap {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(0,196,179,0.25);
+      background: var(--navy-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--slate);
+    }
+    .hero-photo-placeholder svg { opacity: 0.4; }
+    .hero-photo-placeholder span {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      opacity: 0.5;
+      text-align: center;
+      max-width: 160px;
+      line-height: 1.5;
+    }
+    .hero-affiliations {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 300px;
+    }
+    .hero-affil-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy-soft);
+      border: 1px solid rgba(0,196,179,0.15);
+      border-radius: 3px;
+      padding: 10px 14px;
+    }
+    .affil-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .affil-text {
+      font-size: 12px;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+    .affil-text strong { color: var(--cream); font-weight: 500; }
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -187,53 +258,7 @@
     }
     .btn-ghost:hover { border-color: var(--cream); color: var(--cream); transform: translateY(-1px); }
 
-    /* Hero stats card */
-    .hero-stats-card {
-      background: var(--navy-soft);
-      border: 1px solid rgba(0,196,179,0.2);
-      border-radius: 4px;
-      padding: 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-    .stat-item {}
-    .stat-number {
-      font-family: var(--font-mono);
-      font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 500;
-      color: var(--teal);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .stat-label {
-      font-size: 13px;
-      color: var(--slate);
-      line-height: 1.4;
-      max-width: 220px;
-    }
-    .stat-divider {
-      width: 100%;
-      height: 1px;
-      background: rgba(138,155,176,0.15);
-    }
-    .hero-affiliation {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 4px;
-    }
-    .affil-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-    .affil-text {
-      font-size: 13px;
-      color: var(--slate);
-    }
-    .affil-text strong { color: var(--cream); }
+
 
     /* ── INTRO / ABOUT ──────────────────────────────────────────────── */
     #intro {
@@ -588,10 +613,61 @@
       line-height: 1.65;
     }
 
+    /* ── HONORS ─────────────────────────────────────────────────────── */
+    #honors {
+      background: var(--cream);
+      color: var(--navy);
+      padding: var(--section-pad);
+    }
+    .honors-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .honors-header {
+      margin-bottom: 56px;
+    }
+    .honors-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .honor-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(10,22,40,0.1);
+      align-items: start;
+    }
+    .honor-item:first-child { border-top: 1px solid rgba(10,22,40,0.1); }
+    .honor-year {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--teal-dim);
+      padding-top: 3px;
+      font-weight: 500;
+    }
+    .honor-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+    .honor-org {
+      font-size: 13px;
+      color: #5a7090;
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    .honor-desc {
+      font-size: 14px;
+      color: #6a7f98;
+      line-height: 1.6;
+    }
+
     /* ── CONTACT ────────────────────────────────────────────────────── */
     #contact {
       background: var(--navy);
-      padding: 96px 40px;
+      padding: 80px 40px;
       text-align: center;
     }
     .contact-inner {
@@ -604,27 +680,14 @@
       letter-spacing: 0.15em;
       color: var(--teal);
       text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .contact-h2 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 42px);
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .contact-sub {
-      font-size: 16px;
-      color: var(--slate);
-      margin-bottom: 48px;
-      line-height: 1.7;
+      margin-bottom: 36px;
     }
     .contact-links {
       display: flex;
       justify-content: center;
       gap: 24px;
       flex-wrap: wrap;
-      margin-bottom: 48px;
+      margin-bottom: 36px;
     }
     .contact-link {
       display: flex;
@@ -689,21 +752,22 @@
     /* ── RESPONSIVE ─────────────────────────────────────────────────── */
     @media (max-width: 900px) {
       .hero-content { grid-template-columns: 1fr; }
-      .hero-stats-card { flex-direction: row; flex-wrap: wrap; gap: 24px; }
+      .hero-photo-col { flex-direction: row; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+      .hero-photo-wrap { width: 160px; height: 160px; }
       .intro-inner { grid-template-columns: 1fr; gap: 48px; }
       .intro-sticky { position: static; }
       .industry-header { grid-template-columns: 1fr; gap: 24px; }
       .expertise-grid { grid-template-columns: 1fr; }
       .research-header { grid-template-columns: 1fr; gap: 24px; }
-      .research-areas { grid-template-columns: 1fr; }
+      .honor-item { grid-template-columns: 50px 1fr; gap: 16px; }
       nav { padding: 16px 24px; }
-      .nav-links { gap: 20px; }
+      .nav-links { gap: 16px; }
     }
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .hero-content { padding: 100px 24px 60px; }
-      .fit-table { font-size: 13px; }
       .pub-item { grid-template-columns: 1fr; gap: 8px; }
+      .honor-item { grid-template-columns: 1fr; gap: 4px; }
     }
   </style>
 </head>
@@ -711,11 +775,12 @@
 
 <!-- ── NAV ─────────────────────────────────────────────────────────── -->
 <nav id="navbar">
-  <div class="nav-logo">M.A.N.O.</div>
+  <div class="nav-logo">Nunez-Ochoa</div>
   <ul class="nav-links">
     <li><a href="#intro">About</a></li>
-    <li><a href="#industry">Industry</a></li>
     <li><a href="#research">Research</a></li>
+    <li><a href="#industry">Industry</a></li>
+    <li><a href="#honors">Honors</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -725,47 +790,48 @@
   <canvas id="neural-canvas"></canvas>
   <div class="hero-content">
     <div class="hero-text">
-      <div class="hero-eyebrow">Computational Neuroscience · AI · Biomedical Engineering</div>
-      <h1>Miguel A.<br>Núñez Ochoa</h1>
-      <div class="hero-subtitle">Where biological and artificial intelligence meet.</div>
+      <div class="hero-eyebrow">Neuroscience · Data Science · AI/ML</div>
+      <h1>Miguel Angel<br>Núñez Ochoa</h1>
+      <div class="hero-subtitle">Understanding intelligence, one neuron at a time.</div>
       <p class="hero-bio">
-        Research Associate at <strong>HHMI Janelia</strong> (Pachitariu & Stringer Lab). PhD in Neuroscience, Biomedical Engineer, MIT MicroMaster in Statistics & Data Science.
-        <br><br>
-        I build <strong>ML systems to decode how neural circuits give rise to cognition</strong> — working at the scale of 50,000 simultaneously recorded neurons. Now exploring how these methods translate to <strong>healthcare AI, drug discovery, and clinical science</strong>.
+        I'm a computational neuroscientist and postdoc at <strong>HHMI Janelia</strong>, where I study how populations of neurons give rise to cognition and behavior. I'm deeply interested in what the brain can teach us about building better AI, and in bringing that perspective to healthcare, drug discovery, and the science of intelligence.
       </p>
       <div class="hero-cta-row">
-        <a href="#industry" class="btn-primary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          Industry Profile
-        </a>
-        <a href="#research" class="btn-ghost">
+        <a href="#research" class="btn-primary">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           Research
         </a>
+        <a href="#industry" class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          Industry Profile
+        </a>
       </div>
     </div>
-    <div class="hero-stats-card">
-      <div class="stat-item">
-        <div class="stat-number">50K</div>
-        <div class="stat-label">Neurons simultaneously recorded & analyzed with ML at HHMI Janelia</div>
+    <div class="hero-photo-col">
+      <div class="hero-photo-wrap">
+        <!-- Replace the block below with: <img src="photo.jpg" alt="Miguel A. Núñez Ochoa" /> -->
+        <div class="hero-photo-placeholder">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Add photo.jpg to project root</span>
+        </div>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <div class="stat-number">5+</div>
-        <div class="stat-label">Years at one of the world's most prestigious neuroscience institutions</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="hero-affiliation">
-        <div class="affil-dot"></div>
-        <div class="affil-text"><strong>Nature Communications</strong> · First-author publication on visual cortical neuron modeling, 2025</div>
-      </div>
-      <div class="hero-affiliation">
-        <div class="affil-dot" style="background: var(--teal);"></div>
-        <div class="affil-text"><strong>MIT MicroMaster</strong> · Statistics & Data Science</div>
-      </div>
-      <div class="hero-affiliation">
-        <div class="affil-dot" style="background: var(--slate);"></div>
-        <div class="affil-text"><strong>PhD Neuroscience</strong> + <strong>BSc Biomedical Engineering</strong></div>
+      <div class="hero-affiliations">
+        <div class="hero-affil-pill">
+          <div class="affil-dot" style="background:var(--gold);"></div>
+          <div class="affil-text"><strong>HHMI Janelia</strong> · Pachitariu & Stringer Lab</div>
+        </div>
+        <div class="hero-affil-pill">
+          <div class="affil-dot" style="background:var(--teal);"></div>
+          <div class="affil-text"><strong>Universidad de Guadalajara</strong> · PhD Systems & Computational Neuroscience</div>
+        </div>
+        <div class="hero-affil-pill">
+          <div class="affil-dot" style="background:var(--slate);"></div>
+          <div class="affil-text"><strong>MIT</strong> · Statistics & Data Science MicroMaster</div>
+        </div>
+        <div class="hero-affil-pill">
+          <div class="affil-dot" style="background:rgba(138,155,176,0.5);"></div>
+          <div class="affil-text"><strong>Tec de Monterrey</strong> · BSc Biomedical Engineering</div>
+        </div>
       </div>
     </div>
   </div>
@@ -776,27 +842,33 @@
   <div class="intro-inner">
     <div class="intro-sticky">
       <div class="section-label">About</div>
-      <div class="intro-tagline">I crack intelligence — <em>biological first</em>, then artificial.</div>
+      <div class="intro-tagline">Driven by a lifelong fascination with <em>how the brain computes.</em></div>
       <div class="skill-chips">
+        <span class="chip chip--accent">Data Science</span>
+        <span class="chip chip--accent">Machine Learning</span>
         <span class="chip chip--accent">Deep Learning</span>
-        <span class="chip chip--accent">Bayesian Inference</span>
-        <span class="chip chip--accent">Causal Estimation</span>
+        <span class="chip chip--accent">Statistical Modeling</span>
         <span class="chip">Python · R · MATLAB · SQL</span>
         <span class="chip">Large-scale neural recordings</span>
         <span class="chip">Signal & image analysis</span>
-        <span class="chip">Statistical modeling</span>
-        <span class="chip">Dimensionality reduction</span>
+        <span class="chip">Bayesian & causal inference</span>
       </div>
     </div>
     <div class="intro-body fade-in">
       <p>
-        Most people who understand the brain can't build AI systems. Most AI scientists don't understand the brain. I sit at the intersection — trained as a <strong>Biomedical Engineer</strong>, holding a <strong>PhD in Systems & Computational Neuroscience</strong>, and spending the last five years at <strong>HHMI Janelia Research Campus</strong> pushing the limits of what ML can reveal about neural computation.
+        I've always been drawn to problems that sit at the edges of disciplines. The brain, more than anything else, seemed like the place where all those edges converge: biology, physics, engineering, computation, philosophy. That pull led me to study biomedical engineering at ITESM, where I got my first real taste of working with biological signals and building things that try to make sense of them.
       </p>
       <p>
-        At Janelia, I work with recordings from populations of up to <strong>50,000 neurons</strong>, using machine learning and mathematical theory to understand how the brain encodes information, learns, and makes decisions. My 2025 <em>Nature Communications</em> paper introduced a simplified minimodel of visual cortical neurons — a step toward understanding the computational primitives the brain uses to process the world.
+        From there, I went to Guadalajara to do my PhD at the Medina-Ceja lab. My thesis focused on the hippocampus, specifically on a phenomenon called fast ripples: brief, high-frequency electrical events associated with epilepsy and possibly with memory consolidation. Using a combination of electrophysiological recordings, wavelet analysis, and Bayesian causal inference, I mapped a novel interaction between hippocampal subregions and described its likely role in generating these events. It was messy, hard, and genuinely exciting work.
       </p>
       <p>
-        The skills I've built — <strong>Bayesian and causal inference, deep learning on high-dimensional biosignals, scalable ML pipelines</strong> — map directly onto the challenges in healthcare AI, drug discovery, and clinical data science. I'm now actively exploring opportunities in industry, with a focus on <strong>CNS/neuroscience, health AI, and computational science</strong> roles in Montreal and Barcelona.
+        Midway through the PhD, I realized that the data problems in neuroscience were getting ahead of my statistical toolkit. So I completed an MIT MicroMaster in Statistics and Data Science in parallel, not to check a box, but because I needed to understand probability theory and machine learning at a deeper level to make sense of the data I was collecting. That program reshaped how I think about inference, uncertainty, and model building.
+      </p>
+      <p>
+        I'm now a postdoc at <strong>Marius Pachitariu's lab at HHMI Janelia</strong>, where we work at the intersection of mechanistic cognitive science, computation, and theory. We record from populations of up to 50,000 neurons while mice perform complex behavioral tasks, and use ML to understand the structure of those population dynamics. My current focus is on <strong>generalization</strong>, the ability to extract principles from limited experience, which I find fascinating both as a property of biological brains and as a fundamental gap in current AI systems.
+      </p>
+      <p>
+        The same skills that let me work with large-scale neural data (designing statistical pipelines, building predictive models, reasoning carefully about causality and uncertainty) translate directly to the kinds of problems I'm most excited about in industry: understanding disease from complex biological signals, making sense of clinical data, and developing AI tools that are grounded in how biological systems actually work. I'm actively exploring roles in <strong>healthcare AI, computational biology, and data science</strong>, looking for teams that care as much about the science as the engineering.
       </p>
 
       <div class="timeline">
@@ -837,6 +909,78 @@
   </div>
 </section>
 
+<!-- ── RESEARCH ────────────────────────────────────────────────────── -->
+<section id="research">
+  <div class="research-inner">
+    <div class="research-header">
+      <div>
+        <div class="section-label">Research</div>
+        <h2 class="section-h2">My research in the<br>NeuroAI intersection.</h2>
+      </div>
+      <p>
+        Crunching complex data to gain understanding: what changes in the hippocampus during epilepsy, how we can uncover sensory representations in the brain, what a minimal model of a visual neuron actually needs, or even how economic ecosystems self-organize. The common thread is taking messy, high-dimensional systems seriously and building models that make them legible. <a href="https://scholar.google.com/citations?user=-atQBQgAAAAJ&hl=en" target="_blank" rel="noopener" style="color: var(--teal-dim); font-weight: 500;">Google Scholar →</a>
+      </p>
+    </div>
+
+    <div class="pub-list">
+      <div class="pub-item fade-in">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <div class="pub-title">A simplified minimodel of visual cortical neurons</div>
+          <div class="pub-authors">Du, F., <strong>Núñez-Ochoa, M. A.</strong>, Pachitariu, M. et al.</div>
+          <div class="pub-journal">Nature Communications</div>
+          <a class="pub-doi" href="https://doi.org/10.1038/S41467-025-61171-9" target="_blank" rel="noopener">DOI: 10.1038/S41467-025-61171-9 ↗</a>
+        </div>
+      </div>
+      <div class="pub-item fade-in">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <div class="pub-title">A proposal for measuring the structure of economic ecosystems: a mathematical and complex network analysis approach</div>
+          <div class="pub-authors"><strong>Núñez-Ochoa, M. A.</strong>, Mora-Leal, J. et al.</div>
+          <div class="pub-journal">Preprint · bioRxiv</div>
+          <a class="pub-doi" href="https://scholar.google.com/citations?user=-atQBQgAAAAJ&hl=en" target="_blank" rel="noopener">View on Google Scholar ↗</a>
+        </div>
+      </div>
+      <div class="pub-item fade-in">
+        <div class="pub-year">2021</div>
+        <div class="pub-content">
+          <div class="pub-title">Causal relationship of CA3 back-projection to the dentate gyrus and its role in CA1 fast ripple generation</div>
+          <div class="pub-authors"><strong>Núñez-Ochoa, M. A.</strong>, Chipres-Tinajero, G. A., González-Domínguez, N. P., Medina-Ceja, L. G.</div>
+          <div class="pub-journal">BMC Neuroscience</div>
+          <a class="pub-doi" href="https://doi.org/10.1186/S12868-021-00641-4" target="_blank" rel="noopener">DOI: 10.1186/S12868-021-00641-4 ↗</a>
+        </div>
+      </div>
+      <div class="pub-item fade-in">
+        <div class="pub-year">2021</div>
+        <div class="pub-content">
+          <div class="pub-title">Hippocampal immunoreactivity of serotonin 5-HT1A, 5-HT2 and 5-HT7 receptors in a pilocarpine temporal lobe epilepsy rat model with fast ripples</div>
+          <div class="pub-authors"><strong>Núñez-Ochoa, M. A.</strong>, Chipres-Tinajero, G. A., Medina-Ceja, L. G.</div>
+          <div class="pub-journal">NeuroReport</div>
+          <a class="pub-doi" href="https://doi.org/10.1097/WNR.0000000000001594" target="_blank" rel="noopener">DOI: 10.1097/WNR.0000000000001594 ↗</a>
+        </div>
+      </div>
+      <div class="pub-item fade-in">
+        <div class="pub-year">2021</div>
+        <div class="pub-content">
+          <div class="pub-title">Increased immunoreactivity of glutamate receptors, NeuN and GFAP in the hippocampus of epileptic rats with fast ripple activity</div>
+          <div class="pub-authors">Chipres-Tinajero, G. A., <strong>Núñez-Ochoa, M. A.</strong>, Medina-Ceja, L. G.</div>
+          <div class="pub-journal">Experimental Brain Research</div>
+          <a class="pub-doi" href="https://doi.org/10.1007/S00221-021-06108-6" target="_blank" rel="noopener">DOI: 10.1007/S00221-021-06108-6 ↗</a>
+        </div>
+      </div>
+      <div class="pub-item fade-in">
+        <div class="pub-year">2020</div>
+        <div class="pub-content">
+          <div class="pub-title">Effect of deep implantation surgery on physiological and pathological behaviours in rats: a temporal analysis</div>
+          <div class="pub-authors">Chipres-Tinajero, G. A., <strong>Núñez-Ochoa, M. A.</strong>, Medina-Ceja, L. G.</div>
+          <div class="pub-journal">Behavioural Neurology</div>
+          <a class="pub-doi" href="https://doi.org/10.1155/2020/4385706" target="_blank" rel="noopener">DOI: 10.1155/2020/4385706 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── INDUSTRY ────────────────────────────────────────────────────── -->
 <section id="industry">
   <div class="industry-inner">
@@ -846,10 +990,10 @@
           <span style="display:block; width:24px; height:1px; background:var(--teal);"></span>
           Industry
         </div>
-        <h2 class="section-h2 section-h2--light">Built for the intersection<br>of AI and life sciences.</h2>
+        <h2 class="section-h2 section-h2--light">Built for the intersection<br>of Data, AI/ML and life sciences.</h2>
       </div>
       <p>
-        The rarest profiles in healthcare AI are those who understand <strong>both sides</strong>: the biological system and the computational model. My background spans neural signal processing, large-scale ML, and rigorous statistical inference — skills that translate directly to <strong>drug discovery, clinical analytics, digital health, and real-world evidence</strong>.
+        The methods I use every day in neuroscience (building statistical models of complex systems, reasoning about causality, working with high-dimensional biological signals) are exactly what's needed in healthcare AI and pharma. I'm not making a leap from one world to another; I'm applying the same thinking to questions with direct clinical relevance.
       </p>
     </div>
 
@@ -858,8 +1002,8 @@
         <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44l-1.43-6.05A2 2 0 0 0 3.67 11H2"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44l1.43-6.05A2 2 0 0 1 20.33 11H22"/>
         </svg>
-        <div class="card-title">Neural & Biosignal ML</div>
-        <div class="card-desc">Expert in processing high-dimensional time-series from biological systems — from raw electrophysiology to population dynamics. Applies directly to EEG, fMRI, wearable, and multimodal clinical signals.</div>
+        <div class="card-title">Neural & Biosignal Data Science</div>
+        <div class="card-desc">Working with neural recordings means dealing with data that is noisy, high-dimensional, and deeply structured in ways that aren't obvious up front. Learning to navigate that has given me a strong intuition for biosignal analysis that maps well onto clinical signals: EEG, wearables, imaging time-series.</div>
         <div class="card-tags">
           <span class="card-tag">Time-series</span>
           <span class="card-tag">Signal processing</span>
@@ -871,7 +1015,7 @@
           <circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/><path d="M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
         </svg>
         <div class="card-title">Bayesian & Causal Inference</div>
-        <div class="card-desc">Deep expertise in probabilistic modeling and causal estimation — from hippocampal circuit dynamics to economic ecosystem modeling. Directly applicable to RWE, treatment effect estimation, and causal AI in pharma.</div>
+        <div class="card-desc">My PhD was essentially an exercise in causal reasoning: which brain region is actually driving which? I learned to take causal questions seriously, not just finding correlations but building models that can survive scrutiny. That matters a lot in pharma, where treatment effect estimation and real-world evidence demand the same rigor.</div>
         <div class="card-tags">
           <span class="card-tag">Bayesian stats</span>
           <span class="card-tag">Causal estimation</span>
@@ -882,8 +1026,8 @@
         <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M10 8h4M18 8h.01M6 12h12"/>
         </svg>
-        <div class="card-title">Deep Learning at Scale</div>
-        <div class="card-desc">Designed and trained neural architectures on datasets with millions of data points (50K neurons × behavioral epochs). Experienced in building DL pipelines for complex biological prediction tasks.</div>
+        <div class="card-title">Machine Learning & Deep Learning</div>
+        <div class="card-desc">I use ML because it genuinely helps me understand the data, not as a default toolbox. At Janelia, that has meant training neural architectures on population recordings to ask specific scientific questions. In industry contexts, that same instinct (choosing the right model for the problem, not the flashiest one) translates well.</div>
         <div class="card-tags">
           <span class="card-tag">PyTorch / Python</span>
           <span class="card-tag">Large-scale pipelines</span>
@@ -895,7 +1039,7 @@
           <path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
         </svg>
         <div class="card-title">Statistical Modeling & Experimental Design</div>
-        <div class="card-desc">MIT-trained in rigorous statistical frameworks. From experimental design through model validation — I build analyses that hold up to scientific scrutiny, a key differentiator for clinical and pharma research roles.</div>
+        <div class="card-desc">The MIT program forced me to think carefully about what it means to make a valid inference from data. Combined with years of designing and analyzing neuroscience experiments, I've developed a real appreciation for getting the statistics right from the start, which matters especially in clinical and regulatory contexts.</div>
         <div class="card-tags">
           <span class="card-tag">Experimental design</span>
           <span class="card-tag">Model validation</span>
@@ -907,7 +1051,7 @@
           <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
         </svg>
         <div class="card-title">CNS & Neuroscience Domain</div>
-        <div class="card-desc">Rare combination: computational scientist who understands the biological substrate. Directly relevant for CNS drug development, neuro-AI diagnostics, and translational neuroscience at companies like Oryzon, Perceiv AI, and Aifred Health.</div>
+        <div class="card-desc">I studied the brain because I'm genuinely fascinated by it, not as a credential. That means I can have real conversations about hippocampal memory circuits, visual cortex, or neurological disease mechanisms, not just signal-process the data. For companies working in CNS therapeutics or neuro-AI, that depth of domain knowledge is hard to find in a data scientist.</div>
         <div class="card-tags">
           <span class="card-tag">Hippocampus / epilepsy</span>
           <span class="card-tag">Visual cortex</span>
@@ -918,8 +1062,8 @@
         <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
         </svg>
-        <div class="card-title">Teaching & Communication</div>
-        <div class="card-desc">Lectured ML, statistics, and deep learning at ITESM and RIIAA (Latin America's top AI event — hosted Bengio, Hinton). Mentored teams winning national data hackathons. Strong communicator across technical and non-technical audiences.</div>
+        <div class="card-title">Teaching & Cross-functional Communication</div>
+        <div class="card-desc">I've taught ML and statistics at ITESM and RIIAA, Latin America's main AI conference, and I've mentored data science teams in hackathons and research settings. Explaining complex things clearly to different audiences is something I genuinely enjoy, and it shows up in how I collaborate on cross-functional teams.</div>
         <div class="card-tags">
           <span class="card-tag">Lecturing</span>
           <span class="card-tag">Team mentoring</span>
@@ -927,136 +1071,108 @@
         </div>
       </div>
     </div>
-
-    <div class="fit-section fade-in">
-      <div class="fit-label" style="color: var(--slate); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px;">Role fit overview</div>
-      <table class="fit-table">
-        <thead>
-          <tr>
-            <th style="width: 260px;">Role</th>
-            <th style="width: 120px;">Fit</th>
-            <th>What I bring</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Research Scientist / Senior Scientist</td>
-            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></td>
-            <td style="color: var(--slate);">Janelia + Nature Comms publication = direct signal for science-first orgs</td>
-          </tr>
-          <tr>
-            <td>ML Scientist / Senior AI Scientist</td>
-            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></td>
-            <td style="color: var(--slate);">Large-scale ML on neural data translates directly to biomedical ML pipelines</td>
-          </tr>
-          <tr>
-            <td>Computational Scientist</td>
-            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></td>
-            <td style="color: var(--slate);">Core of Janelia work — modeling, simulation, and high-dimensional analysis</td>
-          </tr>
-          <tr>
-            <td>Principal / Senior Data Scientist</td>
-            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot" style="background: rgba(0,196,179,0.2);"></div></div></td>
-            <td style="color: var(--slate);">MIT Stats + leadership experience in hackathons, teaching, and consulting</td>
-          </tr>
-          <tr>
-            <td>Digital Health AI Scientist</td>
-            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot" style="background: rgba(0,196,179,0.2);"></div></div></td>
-            <td style="color: var(--slate);">Biomedical Engineering bridges neuro expertise → health tech applications</td>
-          </tr>
-          <tr>
-            <td>RWE Data Scientist</td>
-            <td><div class="fit-dots"><div class="dot filled"></div><div class="dot" style="background: rgba(0,196,179,0.2);"></div><div class="dot" style="background: rgba(0,196,179,0.2);"></div></div></td>
-            <td style="color: var(--slate);">Causal inference expertise is strong; building EHR/claims exposure</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 </section>
 
-<!-- ── RESEARCH ────────────────────────────────────────────────────── -->
-<section id="research">
-  <div class="research-inner">
-    <div class="research-header">
-      <div>
-        <div class="section-label">Research</div>
-        <h2 class="section-h2">Peer-reviewed work<br>at the neural–AI frontier.</h2>
-      </div>
-      <p>
-        My publications span computational neuroscience, systems neuroscience, and neuro-engineering. From hippocampal epilepsy biomarkers to large-scale cortical models, the through-line is rigorous mathematical modeling of complex biological systems. <a href="https://scholar.google.com/citations?user=-atQBQgAAAAJ&hl=en" target="_blank" rel="noopener" style="color: var(--teal-dim); font-weight: 500;">View on Google Scholar →</a>
-      </p>
+<!-- ── HONORS ─────────────────────────────────────────────────────── -->
+<section id="honors">
+  <div class="honors-inner">
+    <div class="honors-header">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-h2">Honors &amp; Awards</h2>
     </div>
+    <div class="honors-list">
 
-    <div class="pub-list">
-      <div class="pub-item fade-in">
-        <div class="pub-year">2025</div>
-        <div class="pub-content">
-          <span class="pub-badge">First Author · Nature Communications</span>
-          <div class="pub-title">A simplified minimodel of visual cortical neurons</div>
-          <div class="pub-authors">Du, F., <strong>Núñez-Ochoa, M. A.</strong>, Pachitariu, M. et al.</div>
-          <div class="pub-journal">Nature Communications</div>
-          <a class="pub-doi" href="https://doi.org/10.1038/S41467-025-61171-9" target="_blank" rel="noopener">DOI: 10.1038/S41467-025-61171-9 ↗</a>
+      <div class="honor-item fade-in">
+        <div class="honor-year">2026</div>
+        <div class="honor-content">
+          <div class="honor-title">Spotlight Talk · NeuroMonster 2026</div>
+          <div class="honor-org">Thinking about Thinking / HHMI Janelia Research Campus</div>
+          <div class="honor-desc">Invited spotlight talk at the 7th International Conference on the Mathematics of Neuroscience and AI.</div>
         </div>
       </div>
-      <div class="pub-item fade-in">
-        <div class="pub-year">2021</div>
-        <div class="pub-content">
-          <span class="pub-badge">First Author · BMC Neuroscience</span>
-          <div class="pub-title">Causal relationship of CA3 back-projection to the dentate gyrus and its role in CA1 fast ripple generation</div>
-          <div class="pub-authors"><strong>Núñez-Ochoa, M. A.</strong>, Chipres-Tinajero, G. A., González-Domínguez, N. P., Medina-Ceja, L. G.</div>
-          <div class="pub-journal">BMC Neuroscience</div>
-          <a class="pub-doi" href="https://doi.org/10.1186/S12868-021-00641-4" target="_blank" rel="noopener">DOI: 10.1186/S12868-021-00641-4 ↗</a>
-        </div>
-      </div>
-      <div class="pub-item fade-in">
-        <div class="pub-year">2021</div>
-        <div class="pub-content">
-          <span class="pub-badge">First Author · NeuroReport</span>
-          <div class="pub-title">Hippocampal immunoreactivity of serotonin 5-HT1A, 5-HT2 and 5-HT7 receptors in a pilocarpine temporal lobe epilepsy rat model with fast ripples</div>
-          <div class="pub-authors"><strong>Núñez-Ochoa, M. A.</strong>, Chipres-Tinajero, G. A., Medina-Ceja, L. G.</div>
-          <div class="pub-journal">NeuroReport</div>
-          <a class="pub-doi" href="https://doi.org/10.1097/WNR.0000000000001594" target="_blank" rel="noopener">DOI: 10.1097/WNR.0000000000001594 ↗</a>
-        </div>
-      </div>
-      <div class="pub-item fade-in">
-        <div class="pub-year">2021</div>
-        <div class="pub-content">
-          <span class="pub-badge">Co-author · Experimental Brain Research</span>
-          <div class="pub-title">Increased immunoreactivity of glutamate receptors, NeuN and GFAP in the hippocampus of epileptic rats with fast ripple activity</div>
-          <div class="pub-authors">Chipres-Tinajero, G. A., <strong>Núñez-Ochoa, M. A.</strong>, Medina-Ceja, L. G.</div>
-          <div class="pub-journal">Experimental Brain Research</div>
-          <a class="pub-doi" href="https://doi.org/10.1007/S00221-021-06108-6" target="_blank" rel="noopener">DOI: 10.1007/S00221-021-06108-6 ↗</a>
-        </div>
-      </div>
-      <div class="pub-item fade-in">
-        <div class="pub-year">2020</div>
-        <div class="pub-content">
-          <span class="pub-badge">Co-author · Behavioural Neurology</span>
-          <div class="pub-title">Effect of deep implantation surgery on physiological and pathological behaviours in rats: a temporal analysis</div>
-          <div class="pub-authors">Chipres-Tinajero, G. A., <strong>Núñez-Ochoa, M. A.</strong>, Medina-Ceja, L. G.</div>
-          <div class="pub-journal">Behavioural Neurology</div>
-          <a class="pub-doi" href="https://doi.org/10.1155/2020/4385706" target="_blank" rel="noopener">DOI: 10.1155/2020/4385706 ↗</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="research-areas">
-      <div class="area-card fade-in">
-        <div class="area-num">01</div>
-        <div class="area-title">Neural Population Coding</div>
-        <div class="area-desc">How do ensembles of thousands of neurons jointly encode sensory information? I study the geometric and dynamical structure of population activity using dimensionality reduction and ML.</div>
+      <div class="honor-item fade-in">
+        <div class="honor-year">2023</div>
+        <div class="honor-content">
+          <div class="honor-title">María Latigo Award</div>
+          <div class="honor-org">International Network of Human Rights and Humanitarian International Law</div>
+          <div class="honor-desc">Awarded for support to public health policy and human rights during the COVID-19 epidemic in Mexico.</div>
+        </div>
       </div>
-      <div class="area-card fade-in fade-in-delay-1">
-        <div class="area-num">02</div>
-        <div class="area-title">Hippocampal Circuit Dynamics</div>
-        <div class="area-desc">Using Bayesian and causal inference to map the causal architecture of hippocampal circuits — with applications to epilepsy biomarkers (fast ripples) and memory consolidation.</div>
+
+      <div class="honor-item fade-in">
+        <div class="honor-year">2021</div>
+        <div class="honor-content">
+          <div class="honor-title">Keynote Invitation · Health Data Science Program</div>
+          <div class="honor-org">Health iDS · ITESM</div>
+          <div class="honor-desc">Invited keynote among specialists in health data science.</div>
+        </div>
       </div>
-      <div class="area-card fade-in fade-in-delay-2">
-        <div class="area-num">03</div>
-        <div class="area-title">Computational Models of Neurons</div>
-        <div class="area-desc">Building simplified but predictive models of cortical neurons — bridging biophysical realism and engineering utility. The goal: models that are both interpretable and scalable.</div>
+
+      <div class="honor-item fade-in">
+        <div class="honor-year">2021</div>
+        <div class="honor-content">
+          <div class="honor-title">Talk Invitation · Federation of European Neuroscience Societies</div>
+          <div class="honor-org">FENS Forum · Paris, France</div>
+          <div class="honor-desc">Invited presentation at Europe's largest neuroscience conference.</div>
+        </div>
       </div>
+
+      <div class="honor-item fade-in">
+        <div class="honor-year">2020</div>
+        <div class="honor-content">
+          <div class="honor-title">State Award of Innovation, Science and Technology</div>
+          <div class="honor-org">Secretaría de Innovación, Ciencia y Tecnología de Jalisco</div>
+          <div class="honor-desc">Jalisco's top science and technology award, for COVID-19 data analysis that shaped the state's testing platform and public health response.</div>
+        </div>
+      </div>
+
+      <div class="honor-item fade-in">
+        <div class="honor-year">2020</div>
+        <div class="honor-content">
+          <div class="honor-title">AI Latin American SumMIT Invitation</div>
+          <div class="honor-org">Massachusetts Institute of Technology · Cambridge, USA</div>
+          <div class="honor-desc">Personal invitation as a leader in the Latin American AI ecosystem.</div>
+        </div>
+      </div>
+
+      <div class="honor-item fade-in">
+        <div class="honor-year">2019</div>
+        <div class="honor-content">
+          <div class="honor-title">Keynote Invitation · Global Grand Challenges Satellite Summit</div>
+          <div class="honor-org">Royal Academy of Engineering · Guadalajara, Mexico</div>
+          <div class="honor-desc">Invited to speak on the future of AI in Mexico at a summit hosted by the Royal Academy of Engineering.</div>
+        </div>
+      </div>
+
+      <div class="honor-item fade-in">
+        <div class="honor-year">2019</div>
+        <div class="honor-content">
+          <div class="honor-title">Workshop Invitation · RIIAA</div>
+          <div class="honor-org">International Meeting on Artificial Intelligence and Its Applications · CDMX</div>
+          <div class="honor-desc">Invited workshop speaker at Latin America's main AI research event.</div>
+        </div>
+      </div>
+
+      <div class="honor-item fade-in">
+        <div class="honor-year">2017</div>
+        <div class="honor-content">
+          <div class="honor-title">CONACYT PhD Scholarship</div>
+          <div class="honor-org">Consejo Nacional de Ciencia y Tecnología · Universidad de Guadalajara</div>
+          <div class="honor-desc">Full scholarship awarded to top applicants of the PhD program.</div>
+        </div>
+      </div>
+
+      <div class="honor-item fade-in">
+        <div class="honor-year">2010</div>
+        <div class="honor-content">
+          <div class="honor-title">Academic Aptitude Scholarship</div>
+          <div class="honor-org">Tecnológico de Monterrey</div>
+          <div class="honor-desc">80% tuition scholarship for academic achievement in undergraduate studies.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1065,10 +1181,6 @@
 <section id="contact">
   <div class="contact-inner">
     <div class="contact-pre">Get in touch</div>
-    <h2 class="contact-h2">Open to opportunities<br>in Montreal & Barcelona.</h2>
-    <p class="contact-sub">
-      I'm actively exploring roles in healthcare AI, computational science, and ML research in pharma and biotech. If you're looking for a scientist who can build, not just advise — let's talk.
-    </p>
     <div class="contact-links">
       <a class="contact-link" href="https://www.linkedin.com/in/miguelno" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -1091,8 +1203,8 @@
 
 <!-- ── FOOTER ─────────────────────────────────────────────────────── -->
 <footer>
-  <p>Miguel A. Núñez Ochoa · Computational Neuroscientist & AI Scientist</p>
-  <p>Montreal · Barcelona · Open to relocation</p>
+  <p>Miguel Angel Núñez Ochoa · Computational Neuroscientist & AI Scientist</p>
+  <p>miguel.nunez.ochoa@gmail.com</p>
 </footer>
 
 <!-- ── SCRIPTS ────────────────────────────────────────────────────── -->
