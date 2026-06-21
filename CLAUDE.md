@@ -70,7 +70,7 @@ The **neural network canvas animation** in the hero is the signature element. It
 | Institution | HHMI Janelia Research Campus (Pachitariu & Stringer Lab) |
 | Role | Research Associate |
 | Start date | Aug 2020 (CV) / Jul 2021 (LinkedIn) |
-| Key stat | up to 50,000 neurons recorded simultaneously |
+| Key stat | up to 90,000 neurons recorded simultaneously |
 | Top publication | *Nature Communications* (2025), DOI: 10.1038/S41467-025-61171-9 |
 | Google Scholar | https://scholar.google.com/citations?user=-atQBQgAAAAJ&hl=en |
 | LinkedIn | https://www.linkedin.com/in/miguelno |
@@ -106,7 +106,7 @@ From the job target report (`job_targets_montreal_barcelona.md`):
 | Digital Health AI Scientist | ⭐⭐ | AstraZeneca, Sanofi Plai, Quibim |
 | RWE Data Scientist | ⭐ (building) | IQVIA (Montreal + Barcelona) |
 
-**Copy tone:** Translate academic framing to industry impact. E.g., not "we investigate neural circuits" but "analyzed 50K-neuron recordings using ML to identify computational mechanisms underlying cognition."
+**Copy tone:** Translate academic framing to industry impact. E.g., not "we investigate neural circuits" but "analyzed 90K-neuron recordings using ML to identify computational mechanisms underlying cognition."
 
 ---
 
@@ -138,8 +138,8 @@ From the job target report (`job_targets_montreal_barcelona.md`):
 **Goal:** Reframe academic CV into an industry-facing document for pharma/health AI/biotech roles in Montreal and Barcelona.
 
 **Key translation needed:**
-- Academic: "We record from populations of up to 50,000 neurons and use machine learning to investigate activity patterns"
-- Industry: "Designed and applied ML pipelines to large-scale neural datasets (up to 50K neurons) to extract population-level features predictive of cognitive state"
+- Academic: "We record from populations of up to 90,000 neurons and use machine learning to investigate activity patterns"
+- Industry: "Designed and applied ML pipelines to large-scale neural datasets (up to 90K neurons) to extract population-level features predictive of cognitive state"
 
 **Gaps to address:**
 - EHR/claims experience (for RWE roles) → call out causal inference as transferable
